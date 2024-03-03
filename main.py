@@ -4,15 +4,15 @@ URL = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/E
 userAgent = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"}
 
 response = requests.get(URL, headers=userAgent)
-response_json = response.json()
 
-print(response_json)
+if str(response.status_code).startswith("2"):
+    print(response.json())
+elif str(response.status_code).startswith("4"):
+    print("Client side error:", response.status_code)
+elif str(response.status_code).startswith("5"):
+    print("Server side error:", response.status_code)
+else:
+    print("Failed with status code:", response.status_code)
 
-# print(response)
-# if response.status_code == 200:
-#
-#     print(response.json())
-# else:
-#
-#     print(f"Error: {response.status_code}")
+
 
