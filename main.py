@@ -3,8 +3,11 @@ import json
 import requests
 
 
+#    Creating a variable for the user to input a postcode
+userPostcode = input("Enter postcode:")
+
 #    Creating a variable and assigning to our URL and User Agent
-JustEatAPI = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/UB94AU"
+JustEatAPI = f"https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/{userPostcode}"
 userAgent = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"}
 
 #   Creating a variable for our get request
